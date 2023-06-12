@@ -21,3 +21,4 @@ To run your tests
 ### 401 Data Structures, Code Challenges
 
 - Please follow the instructions specific to your 401 language, which can be found in the directory below, matching your course.
+![image](https://github.com/BasharIrani23/data-structures-and-algorithms/assets/129655131/992d114d-e56a-418b-b54f-d4447907f647)
