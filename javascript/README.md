@@ -1,6 +1,7 @@
 # Linked List
 
-### Problem Domain : A linked list is a data structure consisting of a sequence of nodes. Each node contains data and a reference (or link) to the next node in the sequence. The linked list starts with a head node, which is the entry point to the list. The last node in the list has a reference to null, indicating the end of the list.
+### Problem Domain :
+A linked list is a data structure consisting of a sequence of nodes. Each node contains data and a reference (or link) to the next node in the sequence. The linked list starts with a head node, which is the entry point to the list. The last node in the list has a reference to null, indicating the end of the list.
 
 ### Algorithm:
 
