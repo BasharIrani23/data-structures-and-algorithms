@@ -14,3 +14,6 @@ A linked list is a data structure consisting of a sequence of nodes. Each node c
 - Implement the includes method in the LinkedList class. It takes a value parameter. Start with the currentNode set to the head. Iterate through the linked list by moving to the next node until the end of the list (currentNode is null). If the data property of the currentNode is equal to the value, return true. Otherwise, update currentNode to the next node. If the loop completes without finding a matching value, return false.
 
 - Implement the toString method in the LinkedList class. Start with the currentNode set to the head. Initialize an empty string result. Iterate through the linked list by appending the string representation of the current node's data to result, followed by the arrow symbol (->). Update currentNode to the next node. Repeat until the end of the list (currentNode is null). Finally, append "NULL" to result and return it.
+
+## Code : 
+[linkList.js](https://github.com/BasharIrani23/data-structures-and-algorithms/blob/main/javascript/linked-list/index.js)
