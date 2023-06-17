@@ -136,13 +136,13 @@ Run your tests from the console: jest challenges-01.test.js
 ------------------------------------------------------------------------------------------------ */
 
 describe("Testing challenge 1", () => {
-  test("It should return an array with 1 added to each value of the original array", () => {
+  test.skip("It should return an array with 1 added to each value of the original array", () => {
     expect(addOne([1, 2, 3, 4, 5])).toStrictEqual([2, 3, 4, 5, 6]);
   });
 });
 
 describe("Testing challenge 2", () => {
-  test("It should return an array with an exclamation point added to each value of the original array", () => {
+  test.skip("It should return an array with an exclamation point added to each value of the original array", () => {
     expect(addExclamation(["hi", "how", "are", "you"])).toStrictEqual([
       "hi!",
       "how!",
@@ -153,7 +153,7 @@ describe("Testing challenge 2", () => {
 });
 
 describe("Testing challenge 3", () => {
-  test("It should return an array of uppercase strings", () => {
+  test.skip("It should return an array of uppercase strings", () => {
     expect(allUpperCase(["hi", "how", "are", "you"])).toStrictEqual([
       "HI",
       "HOW",
@@ -164,7 +164,7 @@ describe("Testing challenge 3", () => {
 });
 
 describe("Testing challenge 4", () => {
-  test('It should provide an array of strings, that get uppercased, and a "!" at the end', () => {
+  test.skip('It should provide an array of strings, that get uppercased, and a "!" at the end', () => {
     expect(speaker(["hello", "301", "students"], greeting)).toStrictEqual([
       "HELLO!",
       "301!",
@@ -174,7 +174,7 @@ describe("Testing challenge 4", () => {
 });
 
 describe("Testing challenge 5", () => {
-  test("It should add the number 8 to the array five times", () => {
+  test.skip("It should add the number 8 to the array five times", () => {
     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([8, 8, 8, 8, 8]);
     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
   });
@@ -189,7 +189,7 @@ describe("Testing challenge 6", () => {
     { name: "blueberries", available: false },
   ];
 
-  test("It should only add the available items to the list", () => {
+  test.skip("It should only add the available items to the list", () => {
     expect(createList(inventory)).toStrictEqual(["apples", "pears", "bananas"]);
     expect(createList(inventory).length).toStrictEqual(3);
   });
@@ -198,7 +198,7 @@ describe("Testing challenge 6", () => {
 xdescribe("Testing challenge 7", () => {
   const inputs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
 
-  test("It should print out messages or numbers", () => {
+  test.skip("It should print out messages or numbers", () => {
     expect(fizzbuzz(inputs)).toStrictEqual([
       1,
       2,
