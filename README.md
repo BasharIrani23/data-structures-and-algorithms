@@ -1,1 +1,1 @@
-![image](https://github.com/BasharIrani23/data-structures-and-algorithms/assets/129655131/0d315de7-657c-4dc4-a387-8170b9b2faef)
+![image](https://github.com/BasharIrani23/data-structures-and-algorithms/assets/129655131/bcef7bb0-3daf-47cf-86b8-0afbb9920a0f)
