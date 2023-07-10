@@ -2,7 +2,7 @@
 
 const { LinkedList } = require("../index");
 
-describe("Linked List", () => {
+describe("Linked List (Index Implementation)", () => {
   it("can successfully instantiate an empty linked list", () => {
     const ll = new LinkedList();
     expect(ll.head).toBeNull();
@@ -40,5 +40,46 @@ describe("Linked List", () => {
     ll.insert("b");
     ll.insert("c");
     expect(ll.toString()).toBe("{ c } -> { b } -> { a } -> NULL");
+  });
+});
+
+const { LinkedList: LinkedList2 } = require("../otherLinkedList");
+
+describe("Linked List (Other Implementation)", () => {
+  it("head should be empty", () => {
+    const ll = new LinkedList2();
+    expect(ll.head).toBeNull();
+  });
+
+  it("should append values into the linked list", () => {
+    const ll = new LinkedList2();
+    ll.append(30);
+    expect(ll.head.value).toEqual(30);
+    ll.append(10);
+    ll.append(20);
+    expect(ll.head.next.value).toEqual(10);
+  });
+
+  it("should return true when finding a value in the linked list", () => {
+    const ll = new LinkedList2();
+    ll.append(20);
+    ll.append(30);
+    expect(ll.isInclude(30)).toBe(true);
+  });
+
+  it("should return false when not finding a value in the linked list", () => {
+    const ll = new LinkedList2();
+    ll.append(20);
+    ll.append(30);
+    expect(ll.isInclude(40)).toBe(false);
+  });
+
+  it("should return all values in the list", () => {
+    const ll = new LinkedList2();
+    ll.append(10);
+    ll.append(20);
+    ll.append(30);
+    const values = ll.getAllValues();
+    expect(values).toEqual([10, 20, 30]);
   });
 });
