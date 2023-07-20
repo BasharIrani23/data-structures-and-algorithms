@@ -1,65 +1,57 @@
-const Node = require("./binary-tree/Node");
-const BinaryTree = require("./binary-tree/BinaryTree");
-const BinarySearchTree = require("./binary-tree/BinarySearchTree");
+"use strict";
 
-let tree = null;
-let bst = null;
+const BT = require("../binary-tree/BinaryTree");
 
-describe("Binary Tree and Binary Search Tree Testing", () => {
-  beforeEach(() => {
-    let one = new Node(1);
-    let two = new Node(2);
-    let three = new Node(3);
-    let four = new Node(4);
-    let five = new Node(5);
-    let six = new Node(6);
-    let seven = new Node(7);
-    let eight = new Node(8);
-    let nine = new Node(9);
-
-    one.left = two;
-    one.right = three;
-    two.left = six;
-    three.left = four;
-    three.right = five;
-    six.right = seven;
-    seven.left = eight;
-    seven.right = nine;
-
-    tree = new BinaryTree(one);
-    bst = new BinarySearchTree();
+describe("test all", () => {
+  it("Can successfully instantiate an empty tree", () => {
+    let tree = new BT();
+    expect(tree instanceof BT).toBeTruthy();
   });
-
-  it("should create an empty binary tree", () => {
-    const newTree = new BinaryTree();
-    expect(newTree.root).toBeNull();
+  it("Can successfully instantiate a tree with a single root node", () => {
+    let tree = new BT();
+    tree.Add(1);
+    expect(tree.Root.value).toBe(1);
   });
-
-  it("should create a binary tree with root node", () => {
-    expect(tree.root.value).toEqual(1);
+  it("For a Binary Search Tree, can successfully add a left child and right child properly to a node", () => {
+    let tree = new BT();
+    tree.Add(10);
+    tree.Add(5);
+    tree.Add(15);
+    expect(tree.Root.value).toBe(10);
+    expect(tree.Root.left.value).toBe(5);
+    expect(tree.Root.right.value).toBe(15);
   });
-
-  it("should perform pre-order traversal on binary tree correctly", () => {
-    const expectedResult = [1, 2, 6, 7, 8, 9, 3, 4, 5];
-    const result = tree.preOrder();
-    expect(result).toEqual(expectedResult);
+  it("Can successfully return a collection from a pre-order traversal", () => {
+    let tree = new BT();
+    tree.Add(10);
+    tree.Add(12);
+    tree.Add(5);
+    tree.Add(4);
+    expect(tree.preOrder()).toEqual([10, 5, 4, 12]);
   });
-
-  it("should add nodes to the binary search tree correctly", () => {
-    bst.add(5);
-    bst.add(3);
-    bst.add(7);
-    bst.add(2);
-    bst.add(4);
-    bst.add(6);
-    bst.add(8);
-    const expectedResult = [2, 3, 4, 5, 6, 7, 8];
-    const result = bst.inOrder();
-    expect(result).toEqual(expectedResult);
+  it("Can successfully return a collection from an in-order traversal", () => {
+    let tree = new BT();
+    tree.Add(10);
+    tree.Add(12);
+    tree.Add(5);
+    tree.Add(4);
+    expect(tree.inOrder()).toEqual([4, 5, 10, 12]);
   });
-
-  it("should check if a value exists in the binary search tree correctly", () => {
-    expect(bst.contains(6)).toBe(true);
-    expect(bst.contains(9)).toBe(false);
+  it("Can successfully return a collection from an post-order traversal", () => {
+    let tree = new BT();
+    tree.Add(10);
+    tree.Add(12);
+    tree.Add(5);
+    tree.Add(4);
+    expect(tree.postOrder()).toEqual([4, 5, 12, 10]);
+  });
+  it("Returns true/false for the contains method, given an existing or non-existing node value", () => {
+    let tree = new BT();
+    tree.Add(10);
+    tree.Add(12);
+    tree.Add(5);
+    tree.Add(4);
+    expect(tree.Contain(tree.Root, 12)).toBeTruthy();
+    expect(tree.Contain(tree.Root, 20)).toBeFalsy();
   });
 });
