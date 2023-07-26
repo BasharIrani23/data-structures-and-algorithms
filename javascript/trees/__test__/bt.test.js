@@ -1,6 +1,8 @@
 "use strict";
 
 const BT = require("../binary-tree/BinaryTree");
+const TreeBreadthFirst = require('./TreeBreadthFirst');
+const BinarySearchTree = require('./BinarySearchTree');
 
 describe("test all", () => {
   it("Can successfully instantiate an empty tree", () => {
