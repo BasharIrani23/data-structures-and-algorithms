@@ -8,9 +8,12 @@
 
 1-Initialize i to 0.
 
+
 2-While value is greater than sorted[i], increment i to find the correct insertion point.
 
+
 3-Once the correct insertion point is found, shift elements to the right to make space for the value.
+
 
 4-Append the value to the sorted array.
 
