@@ -34,7 +34,8 @@ Initial state: sorted = [], input = [8, 4, 23, 42, 16, 15]
 - i = 1: sorted = [4, 8, 23, 42], input = [16, 15]
 - i = 3: sorted = [4, 8, 16, 23, 42], input = [15]
 - i = 2: sorted = [4, 8, 15, 16, 23, 42], input = []
-  The sorted array is now [4, 8, 15, 16, 23, 42].
+- The sorted array is now [4, 8, 15, 16, 23, 42].
+  
   ***
 
 ## Working code
