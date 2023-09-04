@@ -75,4 +75,24 @@ class Hash {
   }
 }
 
-module.exports = { Hash, Node };
+function repeatedWord(inputString) {
+  const words = inputString.toLowerCase().match(/\w+/g);
+
+  if (!words) {
+    return null; // No words found in the input string
+  }
+
+  const hashTable = new Hash(words.length);
+
+  for (const word of words) {
+    if (hashTable.has(word)) {
+      return word; // First repeated word found
+    } else {
+      hashTable.set(word, true);
+    }
+  }
+
+  return null; // No repeated words found
+}
+
+module.exports = { Hash, Node, repeatedWord };
