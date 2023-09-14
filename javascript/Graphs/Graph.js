@@ -9,45 +9,60 @@ class Graph {
   }
 
   addVertex(vertex) {
-    this.adjList.set(vertex, []);
-    return vertex;
+    if (!this.adjList.has(vertex)) {
+      this.adjList.set(vertex, []);
+    }
   }
 
-  addEdge(start, end, weight) {
-    if (!this.adjList.has(start) || !this.adjList.has(end)) {
+  addEdge(src, dest, weight) {
+    if (!this.adjList.has(src) || !this.adjList.has(dest)) {
       throw new Error("Both vertices should be in the graph");
     }
-    const startAdjacency = this.adjList.get(start);
-    const edge = new Edge(end, weight);
-    startAdjacency.push(edge);
-  }
-  getAllVertices() {
-    return Array.from(this.adjList.keys());
+    const edge = new Edge(dest, weight);
+    this.adjList.get(src).push(edge);
   }
 
   getNeighbors(vertex) {
-    if (!this.adjList.has(vertex)) {
-      console.log("Vertex not found");
-      return [];
-    }
+    return this.adjList.get(vertex) || [];
+  }
 
-    return this.adjList.get(vertex);
+  getAllVertices() {
+    return Array.from(this.adjList.keys());
   }
 
   size() {
     return this.adjList.size;
   }
+
+  breadthFirst(startVertex) {
+    if (!this.adjList.has(startVertex)) {
+      console.log("Vertex not found");
+      return [];
+    }
+
+    let visited = new Set();
+    let queue = [startVertex];
+    let result = [];
+
+    while (queue.length > 0) {
+      let current = queue.shift();
+
+      if (!visited.has(current)) {
+        visited.add(current);
+        result.push(current);
+
+        let neighbors = this.getNeighbors(current);
+        for (let edge of neighbors) {
+          if (!visited.has(edge.vertex)) {
+            queue.push(edge.vertex);
+          }
+        }
+      }
+    }
+
+    console.log(result.map((v) => v.value)); // Display the values of visited vertices
+    return result;
+  }
 }
-
-const vertice1 = new Vertex(1);
-const vertice2 = new Vertex(2);
-const vertice3 = new Vertex(3);
-
-const graph = new Graph();
-graph.addVertex(vertice1);
-graph.addVertex(vertice2);
-graph.addVertex(vertice3);
-graph.addEdge(vertice1, vertice3, 4);
-console.log(graph.getNeighbors(vertice1));
 
 module.exports = Graph;
