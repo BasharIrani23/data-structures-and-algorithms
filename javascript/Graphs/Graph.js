@@ -63,6 +63,29 @@ class Graph {
     console.log(result.map((v) => v.value)); // Display the values of visited vertices
     return result;
   }
+
+  businessTrip(cityNames) {
+    let totalCost = 0;
+
+    for (let i = 0; i < cityNames.length - 1; i++) {
+      let currentCity = cityNames[i];
+      let nextCity = cityNames[i + 1];
+      let neighbors = this.getNeighbors(currentCity);
+
+      let pathFound = false;
+      for (let edge of neighbors) {
+        if (edge.vertex === nextCity) {
+          totalCost += edge.weight;
+          pathFound = true;
+          break;
+        }
+      }
+
+      if (!pathFound) return null;
+    }
+
+    return `$${totalCost}`;
+  }
 }
 
 module.exports = Graph;

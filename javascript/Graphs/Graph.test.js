@@ -110,4 +110,30 @@ describe("Graphs", () => {
     const result = graph.breadthFirst(E);
     expect(result.map((v) => v.value)).toEqual(["E"]);
   });
+  it("should calculate business trip cost correctly", () => {
+    const Metroville = new Vertex("Metroville");
+    const Pandora = new Vertex("Pandora");
+    const Arendelle = new Vertex("Arendelle");
+    const NewMonstropolis = new Vertex("New Monstropolis");
+    const Naboo = new Vertex("Naboo");
+    const Narnia = new Vertex("Narnia");
+
+    graph.addVertex(Metroville);
+    graph.addVertex(Pandora);
+    graph.addVertex(Arendelle);
+    graph.addVertex(NewMonstropolis);
+    graph.addVertex(Naboo);
+    graph.addVertex(Narnia);
+
+    graph.addEdge(Metroville, Pandora, 82);
+    graph.addEdge(Arendelle, NewMonstropolis, 42);
+    graph.addEdge(NewMonstropolis, Naboo, 73);
+
+    expect(graph.businessTrip([Metroville, Pandora])).toBe("$82");
+    expect(graph.businessTrip([Arendelle, NewMonstropolis, Naboo])).toBe(
+      "$115"
+    );
+    expect(graph.businessTrip([Naboo, Pandora])).toBeNull();
+    expect(graph.businessTrip([Narnia, Arendelle, Naboo])).toBeNull();
+  });
 });
