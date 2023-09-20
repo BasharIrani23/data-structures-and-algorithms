@@ -136,4 +136,27 @@ describe("Graphs", () => {
     expect(graph.businessTrip([Naboo, Pandora])).toBeNull();
     expect(graph.businessTrip([Narnia, Arendelle, Naboo])).toBeNull();
   });
+
+  it("should perform depth-first traversal correctly", () => {
+    const A = new Vertex("A");
+    const B = new Vertex("B");
+    const C = new Vertex("C");
+    const D = new Vertex("D");
+
+    graph.addVertex(A);
+    graph.addVertex(B);
+    graph.addVertex(C);
+    graph.addVertex(D);
+
+    graph.addEdge(A, B, 1);
+    graph.addEdge(A, C, 2);
+    graph.addEdge(B, D, 3);
+    graph.addEdge(C, D, 4);
+
+    const result = graph.depthFirst(A);
+    expect(result.map((v) => v.value)).toEqual(["A", "B", "D", "C"]); // Note: The exact output can vary based on graph structure and how DFS is implemented.
+
+    const resultFromD = graph.depthFirst(D);
+    expect(resultFromD.map((v) => v.value)).toEqual(["D"]); // Only D is connected when starting from D.
+  });
 });
