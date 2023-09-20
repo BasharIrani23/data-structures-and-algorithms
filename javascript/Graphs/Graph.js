@@ -86,6 +86,32 @@ class Graph {
 
     return `$${totalCost}`;
   }
+  depthFirst(startVertex) {
+    if (!this.adjList.has(startVertex)) {
+      console.log("Vertex not found");
+      return [];
+    }
+
+    let visited = new Set();
+    let result = [];
+
+    const dfs = (vertex) => {
+      if (visited.has(vertex)) return;
+
+      visited.add(vertex);
+      result.push(vertex);
+
+      let neighbors = this.getNeighbors(vertex);
+      for (let edge of neighbors) {
+        dfs(edge.vertex);
+      }
+    };
+
+    dfs(startVertex);
+
+    console.log(result.map((v) => v.value));
+    return result;
+  }
 }
 
 module.exports = Graph;
