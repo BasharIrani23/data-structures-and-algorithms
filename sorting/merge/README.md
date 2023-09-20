@@ -6,13 +6,6 @@ Our initial array is [8, 4, 23, 42, 16, 15]. Let's visualize this array:
 ## Step 2: Splitting
 
 We begin by splitting the array into smaller halves until each subarray contains only one element. This process creates a binary tree structure. Visual representation of divisions:
-[8, 4, 23, 42, 16, 15]
-/ \
-[8, 4, 23] [42, 16, 15]
-/ \ / \
-[8, 4] [23] [42] [16, 15]
-/ \ / / \
-[8] [4] [42] [16] [15]
 
 ## Step 3: Merging
 
